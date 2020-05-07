@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "name": "Day 1",
+        "isRequirementMet": true,
+        "isFeatured": false,
+        "category": "Rivers"
+    },
+{
+        "id": 2,
+        "name": "Day 2",
+        "isRequirementMet": false,
+        "isFeatured": true,
+        "category": "Lakes"
+    }
+]

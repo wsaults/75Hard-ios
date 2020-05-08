@@ -32,46 +32,6 @@ struct RequirementRow: View {
     }
 }
 
-struct RequirementItem: View {
-    var requirement: Requirement
-    var body: some View {
-        ZStack(alignment: .leading) {
-            requirement.image
-                .renderingMode(.original)
-                .resizable()
-                .frame(width: 155, height: 155)
-                .cornerRadius(10)
-                .shadow(radius: 10)
-            
-            VStack() {
-                Text(requirement.text)
-                    .foregroundColor(.white)
-                    .font(.headline)
-                    .frame(width: 140)
-                    .padding(.leading, 5)
-                Text(requirement.subtext)
-                    .foregroundColor(.white)
-                    .font(.caption)
-                    .frame(width: 140)
-                    .padding(.leading, 5)
-            }
-            
-            if requirement.isRequirementMet {
-                Image(systemName: "checkmark.circle.fill")
-                    .imageScale(.large)
-                    .foregroundColor(.green)
-                    .frame(width: 140, height: 120, alignment: .bottomTrailing)
-            } else {
-                Image(systemName: "circle")
-                    .imageScale(.large)
-                    .foregroundColor(.white)
-                    .frame(width: 140, height: 120, alignment: .bottomTrailing)
-            }
-        }
-        .padding(.leading)
-    }
-}
-
 struct RequirementRow_Previews: PreviewProvider {
      static var previews: some View {
         RequirementRow(

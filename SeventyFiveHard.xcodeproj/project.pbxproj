@@ -60,6 +60,7 @@
 		BEB974012465BC670035E170 /* turtlerock.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEB973FE2465BC660035E170 /* turtlerock.jpg */; };
 		BEB974022465BC670035E170 /* silversalmoncreek.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEB973FF2465BC660035E170 /* silversalmoncreek.jpg */; };
 		BEB974042465C9A10035E170 /* Home-old.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB974032465C9A10035E170 /* Home-old.swift */; };
+		BEB974062465E3C30035E170 /* RequirementItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB974052465E3C30035E170 /* RequirementItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		BEB973FE2465BC660035E170 /* turtlerock.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = turtlerock.jpg; sourceTree = "<group>"; };
 		BEB973FF2465BC660035E170 /* silversalmoncreek.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = silversalmoncreek.jpg; sourceTree = "<group>"; };
 		BEB974032465C9A10035E170 /* Home-old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home-old.swift"; sourceTree = "<group>"; };
+		BEB974052465E3C30035E170 /* RequirementItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 				BEB973E12464B3C10035E170 /* DayView.swift */,
 				BEB973D224649BB50035E170 /* Home.swift */,
 				BEB974032465C9A10035E170 /* Home-old.swift */,
+				BEB974052465E3C30035E170 /* RequirementItem.swift */,
 				BEB973D42464A31B0035E170 /* CategoryRow.swift */,
 				BEB973C52464945B0035E170 /* HikeView.swift */,
 				BEB973D0246495300035E170 /* HikeDetail.swift */,
@@ -459,6 +462,7 @@
 				BEB973A824646D320035E170 /* CircleImage.swift in Sources */,
 				BEB973CD246494CC0035E170 /* HikeGraph.swift in Sources */,
 				BEB973D52464A31B0035E170 /* CategoryRow.swift in Sources */,
+				BEB974062465E3C30035E170 /* RequirementItem.swift in Sources */,
 				BEB973AD2464716A0035E170 /* Day.swift in Sources */,
 				BEB973C62464945C0035E170 /* HikeView.swift in Sources */,
 				BEB973C8246494730035E170 /* Hike.swift in Sources */,

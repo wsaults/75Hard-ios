@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct Home: View {
+    var maxDays: Int
+    
     @State var showingProfile = false
     @EnvironmentObject var userData: UserData
     
@@ -17,6 +19,7 @@ struct Home: View {
             Image(systemName: "person.crop.circle")
                 .imageScale(.large)
                 .accessibility(label: Text("User Profile"))
+                .foregroundColor(.black)
                 .padding()
         }
     }
@@ -25,8 +28,11 @@ struct Home: View {
         NavigationView {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 0) {
-                    ForEach(1..<4) { index in
-                        DayView(day: Day(number: index, date: Date(), areRequirementsMet: false))
+                    ForEach(1...maxDays, id: \.self) { index in
+                        DayView(day:
+                            // Read this from UserDefaults
+                            Day(number: index, date: Date(), areRequirementsMet: false)
+                        )
                     }
                     .listRowInsets(EdgeInsets())
                 }
@@ -49,6 +55,6 @@ struct Home: View {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        Home(maxDays: 4)
     }
 }

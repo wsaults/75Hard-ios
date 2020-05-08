@@ -33,6 +33,7 @@ struct DayView: View {
                 Button(action: { self.showingRules.toggle() }) {
                     Image(systemName: "info.circle")
                         .imageScale(.large)
+                        .foregroundColor(.black)
                         .accessibility(label: Text("Rules"))
                         .padding()
                 }
@@ -40,7 +41,7 @@ struct DayView: View {
             .padding(.top)
         }
         .padding()
-        .navigationBarTitle(Text("Something"), displayMode: .inline)
+        .navigationBarTitle(Text("75HARD"), displayMode: .inline)
         .sheet(isPresented: $showingRules) {
             VStack(alignment: .leading) {
                 Text("🛌 You have until you go to sleep to complete the day")

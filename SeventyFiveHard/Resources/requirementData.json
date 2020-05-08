@@ -1,0 +1,44 @@
+[
+    {
+        "key": "diet",
+        "text": "Follow a diet",
+        "subtext": "",
+        "id": 1,
+        "imageName": "twinlake"
+    },
+    {
+        "key": "water",
+        "text": "Drink 1 gallon of water",
+        "subtext": "",
+        "id": 2,
+        "imageName": "hiddenlake"
+    },
+    {
+        "key": "indoor",
+        "text": "45 Minute Workout",
+        "subtext": "Inside or Outside",
+        "id": 3,
+        "imageName": "chilkoottrail"
+    },
+    {
+        "key": "outdoor",
+        "text": "45 Minute Workout",
+        "subtext": "Outside",
+        "id": 4,
+        "imageName": "chincoteague"
+    },
+    {
+        "key": "read",
+        "text": "Read 10 pages of non-fiction",
+        "subtext": "",
+        "id": 5,
+        "imageName": "icybay"
+    },
+    {
+        "key": "picture",
+        "text": "Take a progress picture",
+        "subtext": "",
+        "id": 6,
+        "imageName": "lakemcdonald"
+    }
+]

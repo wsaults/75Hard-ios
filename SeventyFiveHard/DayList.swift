@@ -12,22 +12,22 @@ struct DayList: View {
     @EnvironmentObject private var userData: UserData
     
     var body: some View {
-        List {
+//        List {
             Toggle(isOn: $userData.showRequirementsMetOnly) {
                 Text("Show Requirements Met only")
             }
             
-            ForEach(userData.days) { day in
-                if !self.userData.showRequirementsMetOnly || day.isRequirementMet {
-                    NavigationLink(destination: ContentView(day: day)
-                        .environmentObject(self.userData)
-                    ) {
-                        Row(day: day)
-                    }
-                }
-            }
-        }
-        .navigationBarTitle("Days")
+//            ForEach(userData.days) { day in
+//                if !self.userData.showRequirementsMetOnly || day.isRequirementMet {
+//                    NavigationLink(destination: ContentView(day: day)
+//                        .environmentObject(self.userData)
+//                    ) {
+//                        Row(day: day)
+//                    }
+//                }
+//            }
+//        }
+//        .navigationBarTitle("Days")
     }
 }
 

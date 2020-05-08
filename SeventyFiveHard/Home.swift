@@ -9,17 +9,6 @@
 import SwiftUI
 
 struct Home: View {
-    var categories: [String: [Day]] {
-        Dictionary(
-            grouping: dayData,
-            by: { $0.category.rawValue }
-        )
-    }
-    
-    var featured: [Day] {
-        dayData.filter { $0.isFeatured }
-    }
-    
     @State var showingProfile = false
     @EnvironmentObject var userData: UserData
     
@@ -34,36 +23,27 @@ struct Home: View {
     
     var body: some View {
         NavigationView {
-            List {
-                FeaturedDays(days: featured)
-                    .scaledToFill()
-                    .frame(height: 200)
-                    .clipped()
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(alignment: .top, spacing: 0) {
+                    ForEach(1..<4) { index in
+                        DayView(day: Day(number: index, date: Date(), areRequirementsMet: false))
+                    }
                     .listRowInsets(EdgeInsets())
-                
-                ForEach(categories.keys.sorted(), id: \.self) { key in
-                    CategoryRow(categoryName: key, items: self.categories[key]!)
-                }
-                .listRowInsets(EdgeInsets())
-                
-                NavigationLink(destination: DayList()) {
-                    Text("See All")
                 }
             }
-            .navigationBarTitle(Text("Featured"))
             .navigationBarItems(trailing: profileButton)
             .sheet(isPresented: $showingProfile) {
                 ProfileHost()
                     .environmentObject(self.userData)
             }
+//            List {
+//                ForEach(categories.keys.sorted(), id: \.self) { key in
+//                    CategoryRow(categoryName: key, items: self.categories[key]!)
+//                }
+//                .listRowInsets(EdgeInsets())
+//            }
+//            .navigationBarTitle(Text("Featured"))
         }
-    }
-}
-
-struct FeaturedDays: View {
-    var days: [Day]
-    var body: some View {
-        Image("hiddenlake").resizable()
     }
 }
 

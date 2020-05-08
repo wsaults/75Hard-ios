@@ -9,27 +9,39 @@
 import SwiftUI
 
 struct DayView: View {
+    @State var showingRules = false
+    var day: Day
+    
     var body: some View {
         VStack() {
             VStack(alignment: .leading) {
                 HStack {
-                    Text("Day 1").font(.title)
+                    Text("Day \(day.number)").font(.largeTitle)
                 }
                 HStack() {
                     Text("You've got this!").font(.subheadline)
                     Spacer()
-                    Text("5/7/2020").font(.subheadline)
+                    Text(day.date.description).font(.subheadline)
                 }
-                Spacer()
             }
-            .padding()
+            .padding(.bottom)
             
-            RequirementRow(label: "🥦 Follow a diet")
-            RequirementRow(label: "💪🏻 2x 45 Min workous")
-            RequirementRow(label: "💧 1 gallon of water")
-            RequirementRow(label: "📖 10 pages of reading")
-            RequirementRow(label: "📸 Take a progress picture")
+            RequirementRow(items: requirementData)
             
+            HStack() {
+                Spacer()
+                Button(action: { self.showingRules.toggle() }) {
+                    Image(systemName: "info.circle")
+                        .imageScale(.large)
+                        .accessibility(label: Text("Rules"))
+                        .padding()
+                }
+            }
+            .padding(.top)
+        }
+        .padding()
+        .navigationBarTitle(Text("Something"), displayMode: .inline)
+        .sheet(isPresented: $showingRules) {
             VStack(alignment: .leading) {
                 Text("🛌 You have until you go to sleep to complete the day")
                 Text("🚫 No alcohol or cheat meals")
@@ -37,14 +49,13 @@ struct DayView: View {
                 Text("🔇 Audio books DO NOT count")
                 Text("💀 Start on day 1 if you fail")
             }
+            .padding()
         }
-        .padding()
-        .navigationBarTitle(Text("Something"), displayMode: .inline)
     }
 }
 
 struct DayView_Previews: PreviewProvider {
     static var previews: some View {
-        DayView()
+        DayView(day: Day(number: 1, date: Date(), areRequirementsMet: false))
     }
 }

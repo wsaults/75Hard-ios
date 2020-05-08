@@ -11,6 +11,5 @@ import Combine
 
 final class UserData: ObservableObject {
     @Published var showRequirementsMetOnly = false
-    @Published var days = dayData
     @Published var profile = Profile.default
 }

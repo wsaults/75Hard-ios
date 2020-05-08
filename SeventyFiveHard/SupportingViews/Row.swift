@@ -9,21 +9,21 @@
 import SwiftUI
 
 struct Row: View {
-    var day: Day
+//    var day: Day
     
     var body: some View {
         HStack {
             Image("chilkoottrail")
                 .resizable()
                 .frame(width: 50, height: 50)
-            Text(day.name)
+//            Text(day.name)
             Spacer()
             
-            if day.isRequirementMet {
-                Image(systemName: "star.fill")
-                    .imageScale(.medium)
-                    .foregroundColor(.yellow)
-            }
+//            if day.isRequirementMet {
+//                Image(systemName: "star.fill")
+//                    .imageScale(.medium)
+//                    .foregroundColor(.yellow)
+//            }
         }
     }
 }
@@ -31,8 +31,8 @@ struct Row: View {
 struct Row_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            Row(day: dayData[0])
-            Row(day: dayData[1])
+            Row()
+            Row()
         }
         .previewLayout(.fixed(width: 300, height: 70))
     }

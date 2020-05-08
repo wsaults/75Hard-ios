@@ -6,12 +6,24 @@
 //  Copyright © 2020 Will Saults. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 
-struct Requirement {
-    var diet: Bool
-    var workouts: Bool
-    var water: Bool
-    var reading: Bool
-    var picture: Bool
+struct Requirement: Hashable, Codable, Identifiable {
+    var id: Int
+    var key: String
+    var text: String
+    var subtext: String
+    fileprivate var imageName: String
+    
+    var isRequirementMet = false
+    
+    private enum CodingKeys: String, CodingKey {
+        case id, key, text, subtext, imageName
+    }
+}
+
+extension Requirement {
+    var image: Image {
+        ImageStore.shared.image(name: imageName)
+    }
 }

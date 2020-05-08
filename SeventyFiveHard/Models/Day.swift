@@ -8,19 +8,8 @@
 
 import Foundation
 
-struct Day: Hashable, Codable, Identifiable {
-    var id: Int
-    var name: String
-    
-//    var requirements: [Requirement] = []
-    var isRequirementMet: Bool
-    var isFeatured: Bool
-    var category: Category
-    
-    enum Category: String, CaseIterable, Codable, Hashable {
-        case featured = "Featured"
-        case lakes = "Lakes"
-        case rivers = "Rivers"
-        case mountains = "Mountains"
-    }
+struct Day {
+    var number: Int
+    var date: Date
+    var areRequirementsMet: Bool
 }

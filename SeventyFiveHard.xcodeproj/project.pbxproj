@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BEB01BC8246794660077EE1B /* DayPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB01BC7246794660077EE1B /* DayPageViewController.swift */; };
+		BEB01BCA2467968F0077EE1B /* DayPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB01BC92467968F0077EE1B /* DayPageView.swift */; };
+		BEB01BCC24685D040077EE1B /* DayGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB01BCB24685D040077EE1B /* DayGridView.swift */; };
 		BEB9737824645FA60035E170 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9737724645FA60035E170 /* AppDelegate.swift */; };
 		BEB9737A24645FA60035E170 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9737924645FA60035E170 /* SceneDelegate.swift */; };
 		BEB9737C24645FA60035E170 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9737B24645FA60035E170 /* ContentView.swift */; };
@@ -81,6 +84,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BEB01BC7246794660077EE1B /* DayPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPageViewController.swift; sourceTree = "<group>"; };
+		BEB01BC92467968F0077EE1B /* DayPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPageView.swift; sourceTree = "<group>"; };
+		BEB01BCB24685D040077EE1B /* DayGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayGridView.swift; sourceTree = "<group>"; };
 		BEB9737424645FA60035E170 /* SeventyFiveHard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeventyFiveHard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB9737724645FA60035E170 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEB9737924645FA60035E170 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -212,6 +218,9 @@
 				BEB9738224645FA80035E170 /* LaunchScreen.storyboard */,
 				BEB9738524645FA80035E170 /* Info.plist */,
 				BEB9737F24645FA80035E170 /* Preview Content */,
+				BEB01BC7246794660077EE1B /* DayPageViewController.swift */,
+				BEB01BC92467968F0077EE1B /* DayPageView.swift */,
+				BEB01BCB24685D040077EE1B /* DayGridView.swift */,
 			);
 			path = SeventyFiveHard;
 			sourceTree = "<group>";
@@ -473,12 +482,14 @@
 				BEB9737A24645FA60035E170 /* SceneDelegate.swift in Sources */,
 				BEB973C22464925F0035E170 /* BadgeSymbol.swift in Sources */,
 				BEB973DA2464AA270035E170 /* Profile.swift in Sources */,
+				BEB01BC8246794660077EE1B /* DayPageViewController.swift in Sources */,
 				BEB973E42464BADE0035E170 /* RequirementRow.swift in Sources */,
 				BEB973E02464AE190035E170 /* ProfileEditor.swift in Sources */,
 				BEB973D324649BB50035E170 /* Home.swift in Sources */,
 				BEB973E22464B3C10035E170 /* DayView.swift in Sources */,
 				BEB973B2246472DC0035E170 /* Requirement.swift in Sources */,
 				BEB973C0246492100035E170 /* BadgeBackground.swift in Sources */,
+				BEB01BCC24685D040077EE1B /* DayGridView.swift in Sources */,
 				BEB973BE24648F120035E170 /* HexagonParameters.swift in Sources */,
 				BEB973DE2464ACBD0035E170 /* HikeBadge.swift in Sources */,
 				BEB973B0246471FB0035E170 /* Row.swift in Sources */,
@@ -486,6 +497,7 @@
 				BEB9737C24645FA60035E170 /* ContentView.swift in Sources */,
 				BEB974042465C9A10035E170 /* Home-old.swift in Sources */,
 				BEB973C4246492F90035E170 /* RotatedBadgeSymbol.swift in Sources */,
+				BEB01BCA2467968F0077EE1B /* DayPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

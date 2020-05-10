@@ -22,9 +22,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
+            
+            var days: [Day] = []
+            for n in 1...75 {
+                days.append(Day(number: n, date: Date(), areRequirementsMet: false))
+            }
+            
             window.rootViewController = UIHostingController(
-                rootView: Home(maxDays: 75)
-                    .environmentObject(UserData())                    
+                rootView: Home(days: days).environmentObject(UserData())
             )
             self.window = window
             window.makeKeyAndVisible()

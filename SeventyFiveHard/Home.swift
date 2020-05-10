@@ -9,16 +9,36 @@
 import SwiftUI
 
 struct Home: View {
-    var maxDays: Int
+    var days: [Day]
     
     @State var showingProfile = false
+    @State var showDayView = true
     @EnvironmentObject var userData: UserData
+    
+    var transition: AnyTransition {
+        let insertion = AnyTransition.scale.combined(with: .opacity)
+        let removal = AnyTransition.scale.combined(with: .opacity)
+        return .asymmetric(insertion: insertion, removal: removal)
+    }
+    
+    var gridViewButton: some View {
+        Button(action: {
+            self.showDayView.toggle()
+        }) {
+            Image(systemName: "circle.grid.3x3")
+                .imageScale(.large)
+                .accessibility(label: Text("Grid View"))
+                .foregroundColor(.black)
+                .padding()
+        }
+    }
+//    "square.stack.3d.up"  -  Day View
     
     var profileButton: some View {
         Button(action: { self.showingProfile.toggle() }) {
-            Image(systemName: "person.crop.circle")
+            Image(systemName: "gear")
                 .imageScale(.large)
-                .accessibility(label: Text("User Profile"))
+                .accessibility(label: Text("Settings"))
                 .foregroundColor(.black)
                 .padding()
         }
@@ -26,35 +46,32 @@ struct Home: View {
     
     var body: some View {
         NavigationView {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(alignment: .top, spacing: 0) {
-                    ForEach(1...maxDays, id: \.self) { index in
-                        DayView(day:
-                            // Read this from UserDefaults
-                            Day(number: index, date: Date(), areRequirementsMet: false)
-                        )
-                    }
-                    .listRowInsets(EdgeInsets())
+            VStack() {
+                if showDayView {
+                    DayPageView(days.map {
+                        DayView(day: $0)
+                    })
+                    .transition(transition)
+                } else {
+                    DayGridView(days: days).transition(transition)
                 }
             }
-            .navigationBarItems(trailing: profileButton)
+            .navigationBarItems(leading: gridViewButton, trailing: profileButton)
             .sheet(isPresented: $showingProfile) {
                 ProfileHost()
                     .environmentObject(self.userData)
             }
-//            List {
-//                ForEach(categories.keys.sorted(), id: \.self) { key in
-//                    CategoryRow(categoryName: key, items: self.categories[key]!)
-//                }
-//                .listRowInsets(EdgeInsets())
-//            }
-//            .navigationBarTitle(Text("Featured"))
+            .navigationBarTitle(Text("75HARD"), displayMode: .inline)
         }
     }
 }
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home(maxDays: 4)
+        Home(days: [
+            Day(number: 1, date: Date(), areRequirementsMet: false),
+            Day(number: 2, date: Date(), areRequirementsMet: false),
+            Day(number: 3, date: Date(), areRequirementsMet: false)]
+        )
     }
 }

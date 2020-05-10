@@ -16,22 +16,24 @@ struct DayView: View {
         VStack() {
             VStack(alignment: .leading) {
                 HStack {
-                    Text("Day \(day.number)").font(.largeTitle)
+                    Text("Day \(day.number)").font(.largeTitle).bold()
                 }
                 HStack() {
-                    Text("You've got this!").font(.subheadline)
+                    Text("You've got this!").font(.callout)
                     Spacer()
                     Text(day.date.description).font(.subheadline)
                 }
             }
             .padding(.bottom)
+            .padding(.leading)
+            .padding(.trailing)
             
             RequirementRow(items: requirementData)
             
             HStack() {
                 Spacer()
                 Button(action: { self.showingRules.toggle() }) {
-                    Image(systemName: "info.circle")
+                    Image(systemName: "exclamationmark.shield")
                         .imageScale(.large)
                         .foregroundColor(.black)
                         .accessibility(label: Text("Rules"))
@@ -41,7 +43,7 @@ struct DayView: View {
             .padding(.top)
         }
         .padding()
-        .navigationBarTitle(Text("75HARD"), displayMode: .inline)
+//        .navigationBarTitle(Text("Day \(day.number)"), displayMode: .inline)
         .sheet(isPresented: $showingRules) {
             VStack(alignment: .leading) {
                 Text("🛌 You have until you go to sleep to complete the day")

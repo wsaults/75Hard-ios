@@ -26,6 +26,23 @@ struct ProfileEditor: View {
                 TextField("Username", text: $profile.username)
             }
             
+            VStack(alignment: .leading, spacing: 20) {
+                Text("Current Day").bold()
+                
+//                Picker("Convert", selection: $binding) {
+//                    ForEach(0 ..< pickerData.count, id: \.self)
+//                    { i in
+//                        Text(self.pickerData[i])
+//                    }
+//                }
+                
+                Picker(selection: $profile.currentDay, label: Text("")) {
+                    ForEach(1 ... profile.maxDays, id: \.self) { i in
+                        Text("\(i)")
+                   }
+                }.padding(.top, -60)
+            }.padding(.top)
+            
             Toggle(isOn: $profile.prefersNotifications) {
                 Text("Enable Notifications")
             }

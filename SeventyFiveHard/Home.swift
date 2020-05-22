@@ -48,12 +48,16 @@ struct Home: View {
         NavigationView {
             VStack() {
                 if showDayView {
-                    DayPageView(days.map {
-                        DayView(day: $0)
-                    })
-                    .transition(transition)
+                    DayPageView(
+                        days: days.map {
+                            DayView(currentDay: userData.profile.currentDay, day: $0)
+                        }
+                    ).transition(transition)
                 } else {
-                    DayGridView(days: days).transition(transition)
+                    DayGridView(
+                        currentDay: userData.profile.currentDay,
+                        days: days
+                    ).transition(transition)
                 }
             }
             .navigationBarItems(leading: gridViewButton, trailing: profileButton)

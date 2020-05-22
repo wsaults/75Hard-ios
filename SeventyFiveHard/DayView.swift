@@ -10,13 +10,18 @@ import SwiftUI
 
 struct DayView: View {
     @State var showingRules = false
+    
+    var currentDay: Int
     var day: Day
     
     var body: some View {
         VStack() {
             VStack(alignment: .leading) {
                 HStack {
-                    Text("Day \(day.number)").font(.largeTitle).bold()
+                    Text("Day \(day.number)")
+                        .foregroundColor(currentDay == day.number ? .red : .primary)
+                        .font(.largeTitle)
+                        .bold()
                 }
                 HStack() {
                     Text("You've got this!").font(.callout)
@@ -59,6 +64,10 @@ struct DayView: View {
 
 struct DayView_Previews: PreviewProvider {
     static var previews: some View {
-        DayView(day: Day(number: 1, date: Date(), areRequirementsMet: false))
+        Group {
+            DayView(currentDay: 1, day: Day(number: 1, date: Date(), areRequirementsMet: false))
+            DayView(currentDay: 1, day: Day(number: 2, date: Date(), areRequirementsMet: false))
+        }
+        
     }
 }

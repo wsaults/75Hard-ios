@@ -12,7 +12,7 @@ struct DayPageView<Page: View>: View {
     var viewControllers: [UIHostingController<Page>]
     @State var currentPage = 0
 
-    init(_ views: [Page]) {
+    init(days views: [Page]) {
         self.viewControllers = views.map { UIHostingController(rootView: $0) }
     }
 
@@ -30,8 +30,8 @@ struct DayPageView_Previews: PreviewProvider {
             Day(number: 2, date: Date(), areRequirementsMet: false),
             Day(number: 3, date: Date(), areRequirementsMet: false)
         ]
-        return DayPageView(days.map {
-            DayView(day: $0)
+        return DayPageView(days: days.map {
+            DayView(currentDay: 1, day: $0)
         })
     }
 }

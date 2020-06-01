@@ -26,6 +26,8 @@ struct ProfileSummary: View {
             
             Text("Notifications: \(self.profile.prefersNotifications ? "On": "Off" )")
             
+            Text("Current Day: \(self.profile.currentDay)")
+            
             Text("Goal Date: \(self.profile.goalDate, formatter: Self.goalFormat)")
             
             VStack(alignment: .leading) {

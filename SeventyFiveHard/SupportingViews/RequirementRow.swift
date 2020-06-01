@@ -8,33 +8,24 @@
 
 import SwiftUI
 
-struct RequirementRow: View {
+struct RequirementRows: View {
     var items: [Requirement]
     
     var body: some View {
-        VStack() {
-            HStack() {
-                RequirementItem(requirement: items[0])
-                RequirementItem(requirement: items[1])
-            }
-            .padding(.bottom)
-            HStack() {
-                RequirementItem(requirement: items[2])
-                RequirementItem(requirement: items[3])
-            }
-            .padding(.bottom)
-            HStack() {
-                RequirementItem(requirement: items[4])
-                RequirementItem(requirement: items[5])
-            }
+        VStack(spacing: 0) {
+            RequirementItemRow(requirement: items[0])
+            RequirementItemRow(requirement: items[1])
+            RequirementItemRow(requirement: items[2])
+            RequirementItemRow(requirement: items[3])
+            RequirementItemRow(requirement: items[4])
+            RequirementItemRow(requirement: items[5])
         }
-        .padding(.trailing)
     }
 }
 
 struct RequirementRow_Previews: PreviewProvider {
      static var previews: some View {
-        RequirementRow(
+        RequirementRows(
             items: Array(requirementData)
         )
 //           Group {

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE7D792C247B0B09001DA298 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7D792B247B0B09001DA298 /* WeekView.swift */; };
+		BE7D792E247B0BFA001DA298 /* WeekDayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7D792D247B0BFA001DA298 /* WeekDayButton.swift */; };
+		BE7D79302482EB68001DA298 /* RequirementItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7D792F2482EB68001DA298 /* RequirementItemRow.swift */; };
+		BE7D79322484A802001DA298 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7D79312484A802001DA298 /* Helpers.swift */; };
 		BEB01BC8246794660077EE1B /* DayPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB01BC7246794660077EE1B /* DayPageViewController.swift */; };
 		BEB01BCA2467968F0077EE1B /* DayPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB01BC92467968F0077EE1B /* DayPageView.swift */; };
 		BEB01BCC24685D040077EE1B /* DayGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB01BCB24685D040077EE1B /* DayGridView.swift */; };
@@ -46,7 +50,6 @@
 		BEB973DE2464ACBD0035E170 /* HikeBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB973DD2464ACBD0035E170 /* HikeBadge.swift */; };
 		BEB973E02464AE190035E170 /* ProfileEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB973DF2464AE190035E170 /* ProfileEditor.swift */; };
 		BEB973E22464B3C10035E170 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB973E12464B3C10035E170 /* DayView.swift */; };
-		BEB973E42464BADE0035E170 /* RequirementRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB973E32464BADE0035E170 /* RequirementRow.swift */; };
 		BEB973E62465B4B70035E170 /* landmarkData.json in Resources */ = {isa = PBXBuildFile; fileRef = BEB973E52465B4B70035E170 /* landmarkData.json */; };
 		BEB973E82465B4EA0035E170 /* requirementData.json in Resources */ = {isa = PBXBuildFile; fileRef = BEB973E72465B4EA0035E170 /* requirementData.json */; };
 		BEB973EA2465B8230035E170 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB973E92465B8230035E170 /* Landmark.swift */; };
@@ -84,6 +87,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE7D792B247B0B09001DA298 /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
+		BE7D792D247B0BFA001DA298 /* WeekDayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayButton.swift; sourceTree = "<group>"; };
+		BE7D792F2482EB68001DA298 /* RequirementItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementItemRow.swift; sourceTree = "<group>"; };
+		BE7D79312484A802001DA298 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		BEB01BC7246794660077EE1B /* DayPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPageViewController.swift; sourceTree = "<group>"; };
 		BEB01BC92467968F0077EE1B /* DayPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPageView.swift; sourceTree = "<group>"; };
 		BEB01BCB24685D040077EE1B /* DayGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayGridView.swift; sourceTree = "<group>"; };
@@ -129,7 +136,6 @@
 		BEB973DD2464ACBD0035E170 /* HikeBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikeBadge.swift; sourceTree = "<group>"; };
 		BEB973DF2464AE190035E170 /* ProfileEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditor.swift; sourceTree = "<group>"; };
 		BEB973E12464B3C10035E170 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
-		BEB973E32464BADE0035E170 /* RequirementRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementRow.swift; sourceTree = "<group>"; };
 		BEB973E52465B4B70035E170 /* landmarkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = landmarkData.json; sourceTree = "<group>"; };
 		BEB973E72465B4EA0035E170 /* requirementData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = requirementData.json; sourceTree = "<group>"; };
 		BEB973E92465B8230035E170 /* Landmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
@@ -174,6 +180,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE3724A8247AE60D003A83DD /* DayViews */ = {
+			isa = PBXGroup;
+			children = (
+				BEB974052465E3C30035E170 /* RequirementItem.swift */,
+				BEB973B72464795D0035E170 /* DayList.swift */,
+				BEB973E12464B3C10035E170 /* DayView.swift */,
+				BEB01BC7246794660077EE1B /* DayPageViewController.swift */,
+				BEB01BC92467968F0077EE1B /* DayPageView.swift */,
+				BEB01BCB24685D040077EE1B /* DayGridView.swift */,
+				BE7D792B247B0B09001DA298 /* WeekView.swift */,
+				BE7D792D247B0BFA001DA298 /* WeekDayButton.swift */,
+				BE7D792F2482EB68001DA298 /* RequirementItemRow.swift */,
+			);
+			path = DayViews;
+			sourceTree = "<group>";
+		};
+		BE3724A9247AE632003A83DD /* ExampleViews */ = {
+			isa = PBXGroup;
+			children = (
+				BEB973D42464A31B0035E170 /* CategoryRow.swift */,
+				BEB973C52464945B0035E170 /* HikeView.swift */,
+				BEB973D0246495300035E170 /* HikeDetail.swift */,
+				BEB9737B24645FA60035E170 /* ContentView.swift */,
+				BEB973BF246492100035E170 /* BadgeBackground.swift */,
+				BEB973BB24648EBF0035E170 /* Badge.swift */,
+				BEB974032465C9A10035E170 /* Home-old.swift */,
+			);
+			path = ExampleViews;
+			sourceTree = "<group>";
+		};
 		BEB9736B24645FA50035E170 = {
 			isa = PBXGroup;
 			children = (
@@ -197,30 +233,20 @@
 		BEB9737624645FA60035E170 /* SeventyFiveHard */ = {
 			isa = PBXGroup;
 			children = (
+				BEB9737724645FA60035E170 /* AppDelegate.swift */,
+				BEB9737924645FA60035E170 /* SceneDelegate.swift */,
+				BEB973D224649BB50035E170 /* Home.swift */,
+				BE3724A8247AE60D003A83DD /* DayViews */,
 				BEB973D62464A9BD0035E170 /* Profile */,
 				BEB973CB246494BC0035E170 /* SupportingViews */,
 				BEB973AE246471960035E170 /* Resources */,
 				BEB973AB2464712C0035E170 /* Models */,
-				BEB9737724645FA60035E170 /* AppDelegate.swift */,
-				BEB973E12464B3C10035E170 /* DayView.swift */,
-				BEB973D224649BB50035E170 /* Home.swift */,
-				BEB974032465C9A10035E170 /* Home-old.swift */,
-				BEB974052465E3C30035E170 /* RequirementItem.swift */,
-				BEB973D42464A31B0035E170 /* CategoryRow.swift */,
-				BEB973C52464945B0035E170 /* HikeView.swift */,
-				BEB973D0246495300035E170 /* HikeDetail.swift */,
-				BEB973BB24648EBF0035E170 /* Badge.swift */,
-				BEB973BF246492100035E170 /* BadgeBackground.swift */,
-				BEB9737924645FA60035E170 /* SceneDelegate.swift */,
-				BEB9737B24645FA60035E170 /* ContentView.swift */,
-				BEB973B72464795D0035E170 /* DayList.swift */,
+				BE3724A9247AE632003A83DD /* ExampleViews */,
 				BEB9737D24645FA80035E170 /* Assets.xcassets */,
 				BEB9738224645FA80035E170 /* LaunchScreen.storyboard */,
 				BEB9738524645FA80035E170 /* Info.plist */,
 				BEB9737F24645FA80035E170 /* Preview Content */,
-				BEB01BC7246794660077EE1B /* DayPageViewController.swift */,
-				BEB01BC92467968F0077EE1B /* DayPageView.swift */,
-				BEB01BCB24685D040077EE1B /* DayGridView.swift */,
+				BE7D79312484A802001DA298 /* Helpers.swift */,
 			);
 			path = SeventyFiveHard;
 			sourceTree = "<group>";
@@ -300,7 +326,6 @@
 				BEB973CE246495190035E170 /* GraphCapsule.swift */,
 				BEB973CC246494CC0035E170 /* HikeGraph.swift */,
 				BEB973DD2464ACBD0035E170 /* HikeBadge.swift */,
-				BEB973E32464BADE0035E170 /* RequirementRow.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -464,6 +489,7 @@
 			files = (
 				BEB973CF246495190035E170 /* GraphCapsule.swift in Sources */,
 				BEB973B82464795D0035E170 /* DayList.swift in Sources */,
+				BE7D792E247B0BFA001DA298 /* WeekDayButton.swift in Sources */,
 				BEB973BC24648EBF0035E170 /* Badge.swift in Sources */,
 				BEB973D82464A9E80035E170 /* ProfileHost.swift in Sources */,
 				BEB9737824645FA60035E170 /* AppDelegate.swift in Sources */,
@@ -471,19 +497,21 @@
 				BEB973A824646D320035E170 /* CircleImage.swift in Sources */,
 				BEB973CD246494CC0035E170 /* HikeGraph.swift in Sources */,
 				BEB973D52464A31B0035E170 /* CategoryRow.swift in Sources */,
+				BE7D79322484A802001DA298 /* Helpers.swift in Sources */,
 				BEB974062465E3C30035E170 /* RequirementItem.swift in Sources */,
 				BEB973AD2464716A0035E170 /* Day.swift in Sources */,
 				BEB973C62464945C0035E170 /* HikeView.swift in Sources */,
 				BEB973C8246494730035E170 /* Hike.swift in Sources */,
+				BE7D792C247B0B09001DA298 /* WeekView.swift in Sources */,
 				BEB973AA24646E500035E170 /* MapView.swift in Sources */,
 				BEB973DC2464AC260035E170 /* ProfileSummary.swift in Sources */,
 				BEB973BA24648A770035E170 /* UserData.swift in Sources */,
+				BE7D79302482EB68001DA298 /* RequirementItemRow.swift in Sources */,
 				BEB973D1246495300035E170 /* HikeDetail.swift in Sources */,
 				BEB9737A24645FA60035E170 /* SceneDelegate.swift in Sources */,
 				BEB973C22464925F0035E170 /* BadgeSymbol.swift in Sources */,
 				BEB973DA2464AA270035E170 /* Profile.swift in Sources */,
 				BEB01BC8246794660077EE1B /* DayPageViewController.swift in Sources */,
-				BEB973E42464BADE0035E170 /* RequirementRow.swift in Sources */,
 				BEB973E02464AE190035E170 /* ProfileEditor.swift in Sources */,
 				BEB973D324649BB50035E170 /* Home.swift in Sources */,
 				BEB973E22464B3C10035E170 /* DayView.swift in Sources */,

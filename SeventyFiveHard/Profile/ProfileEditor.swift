@@ -29,13 +29,6 @@ struct ProfileEditor: View {
             VStack(alignment: .leading, spacing: 20) {
                 Text("Current Day").bold()
                 
-//                Picker("Convert", selection: $binding) {
-//                    ForEach(0 ..< pickerData.count, id: \.self)
-//                    { i in
-//                        Text(self.pickerData[i])
-//                    }
-//                }
-                
                 Picker(selection: $profile.currentDay, label: Text("")) {
                     ForEach(1 ... profile.maxDays, id: \.self) { i in
                         Text("\(i)")
@@ -46,18 +39,6 @@ struct ProfileEditor: View {
             Toggle(isOn: $profile.prefersNotifications) {
                 Text("Enable Notifications")
             }
-            
-            VStack(alignment: .leading, spacing: 20) {
-                Text("Seasonal Photo").bold()
-                
-                Picker("Seasonal Photo", selection: $profile.seasonalPhoto) {
-                    ForEach(Profile.Season.allCases, id: \.self) { season in
-                        Text(season.rawValue).tag(season)
-                    }
-                }
-                .pickerStyle(SegmentedPickerStyle())
-            }
-            .padding(.top)
             
             VStack(alignment: .leading, spacing: 20) {
                 Text("Goal Date").bold()

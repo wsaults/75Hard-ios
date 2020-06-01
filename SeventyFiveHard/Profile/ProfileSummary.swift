@@ -26,8 +26,6 @@ struct ProfileSummary: View {
             
             Text("Notifications: \(self.profile.prefersNotifications ? "On": "Off" )")
             
-            Text("Seasonal Photos: \(self.profile.seasonalPhoto.rawValue)")
-            
             Text("Goal Date: \(self.profile.goalDate, formatter: Self.goalFormat)")
             
             VStack(alignment: .leading) {

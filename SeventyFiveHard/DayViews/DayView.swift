@@ -12,43 +12,43 @@ struct DayView: View {
     @State var showingRules = false
     
     var currentDay: Int
-    var day: Day
+    @Binding var day: Day
+    fileprivate var items: [Requirement]  {
+        requirementData
+    }
     
     var body: some View {
         VStack() {
             VStack(alignment: .leading) {
                 HStack {
                     Text("Day \(day.number)")
-                        .foregroundColor(currentDay == day.number ? .red : .primary)
+                        .foregroundColor(currentDay == day.number ? Color(UIColor.systemIndigo) : .primary)
                         .font(.largeTitle)
                         .bold()
+                    Spacer()
+                    Button(action: { self.showingRules.toggle() }) {
+                        Image(systemName: "exclamationmark.shield")
+                            .imageScale(.large)
+                            .foregroundColor(.primary)
+                            .accessibility(label: Text("Rules"))
+                            .padding()
+                    }
                 }
                 HStack() {
                     Text("You've got this!").font(.callout)
+                        .padding(.top, -10)
                     Spacer()
-                    Text(day.date.description).font(.subheadline)
                 }
             }
-            .padding(.bottom)
             .padding(.leading)
-            .padding(.trailing)
             
-            RequirementRow(items: requirementData)
-            
-            HStack() {
-                Spacer()
-                Button(action: { self.showingRules.toggle() }) {
-                    Image(systemName: "exclamationmark.shield")
-                        .imageScale(.large)
-                        .foregroundColor(.black)
-                        .accessibility(label: Text("Rules"))
-                        .padding()
+            VStack(spacing: 0) {
+                ForEach(items, id: \.id) { item in
+                    RequirementItemRow(requirement: item, day: self.$day)
                 }
             }
-            .padding(.top)
         }
-        .padding()
-//        .navigationBarTitle(Text("Day \(day.number)"), displayMode: .inline)
+        .padding(.top)
         .sheet(isPresented: $showingRules) {
             VStack(alignment: .leading) {
                 Text("🛌 You have until you go to sleep to complete the day")
@@ -65,9 +65,14 @@ struct DayView: View {
 struct DayView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            DayView(currentDay: 1, day: Day(number: 1, date: Date(), areRequirementsMet: false))
-            DayView(currentDay: 1, day: Day(number: 2, date: Date(), areRequirementsMet: false))
+            DayView(currentDay: 1, day: .constant(Day(number: 1, date: Date(), areRequirementsMet: false)))
+              .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+              .previewDisplayName("iPhone SE")
+
+
+            DayView(currentDay: 1, day: .constant(Day(number: 2, date: Date(), areRequirementsMet: false)))
+              .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
+              .previewDisplayName("iPhone XS Max")
         }
-        
     }
 }

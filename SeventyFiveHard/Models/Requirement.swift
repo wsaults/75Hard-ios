@@ -15,8 +15,6 @@ struct Requirement: Hashable, Codable, Identifiable {
     var subtext: String
     fileprivate var imageName: String
     
-    var isRequirementMet = false
-    
     private enum CodingKeys: String, CodingKey {
         case id, key, text, subtext, imageName
     }

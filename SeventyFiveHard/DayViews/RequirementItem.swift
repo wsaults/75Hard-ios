@@ -18,7 +18,7 @@ struct RequirementItem: View {
             requirement.image
                 .renderingMode(.original)
                 .resizable()
-                .frame(width: 155, height: 155)
+                .frame(width: 145, height: 145)
                 .cornerRadius(10)
                 .shadow(radius: 10)
             
@@ -32,31 +32,31 @@ struct RequirementItem: View {
                     Text(requirement.text)
                         .foregroundColor(.white)
                         .font(.headline)
-                        .frame(width: 140, alignment: .bottomLeading)
+                        .frame(width: 130, alignment: .bottomLeading)
                         .padding(.bottom, 10)
                     
                     if requirement.subtext.count > 0 {
                         Text(requirement.subtext)
                         .foregroundColor(.white)
                         .font(.caption)
-                        .frame(width: 140, alignment: .bottomLeading)
+                        .frame(width: 130, alignment: .bottomLeading)
                         .padding(.top, -10)
                         .padding(.bottom, 10)
                     }
                 }
                 
-                if requirement.isRequirementMet {
-                    Image(systemName: "checkmark.circle.fill")
-                        .imageScale(.large)
-                        .foregroundColor(.green)
-                        .frame(width: 130, height: 130, alignment: .bottomTrailing)
-                } else {
-                    Image(systemName: "circle")
-                        .imageScale(.large)
-                        .foregroundColor(.white)
-                        .frame(width: 130, height: 130, alignment: .bottomTrailing)
-                }
-            }.frame(width: 155, height: 155)
+//                if requirement.isRequirementMet {
+//                    Image(systemName: "checkmark.square.fill")
+//                        .imageScale(.large)
+//                        .foregroundColor(.green)
+//                        .frame(width: 120, height: 120, alignment: .topTrailing)
+//                } else {
+//                    Image(systemName: "square")
+//                        .imageScale(.large)
+//                        .foregroundColor(.white)
+//                        .frame(width: 120, height: 120, alignment: .topTrailing)
+//                }
+            }.frame(width: 145, height: 145)
         }
         .padding(.leading)
     }

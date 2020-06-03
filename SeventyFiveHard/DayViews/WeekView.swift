@@ -30,9 +30,9 @@ struct WeekView: View {
 struct WeekView_Previews: PreviewProvider {
     static var previews: some View {
         let days = [
-            Day(number: 70, date: Date(), areRequirementsMet: false),
-            Day(number: 71, date: Date(), areRequirementsMet: false),
-            Day(number: 72, date: Date(), areRequirementsMet: true),
+            Day(number: 70, date: Date()),
+            Day(number: 71, date: Date()),
+            Day(number: 72, date: Date()),
         ]
         
         return WeekView(current: 71, days: days)

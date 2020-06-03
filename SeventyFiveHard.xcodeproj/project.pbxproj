@@ -236,6 +236,7 @@
 				BEB9737724645FA60035E170 /* AppDelegate.swift */,
 				BEB9737924645FA60035E170 /* SceneDelegate.swift */,
 				BEB973D224649BB50035E170 /* Home.swift */,
+				BE7D79312484A802001DA298 /* Helpers.swift */,
 				BE3724A8247AE60D003A83DD /* DayViews */,
 				BEB973D62464A9BD0035E170 /* Profile */,
 				BEB973CB246494BC0035E170 /* SupportingViews */,
@@ -246,7 +247,6 @@
 				BEB9738224645FA80035E170 /* LaunchScreen.storyboard */,
 				BEB9738524645FA80035E170 /* Info.plist */,
 				BEB9737F24645FA80035E170 /* Preview Content */,
-				BE7D79312484A802001DA298 /* Helpers.swift */,
 			);
 			path = SeventyFiveHard;
 			sourceTree = "<group>";

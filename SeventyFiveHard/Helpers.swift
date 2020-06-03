@@ -12,8 +12,17 @@ class Helpers {
     static func createDays() -> [Day] {
         var days: [Day] = []
         for n in 1...75 {
-            days.append(Day(number: n, date: Date(), areRequirementsMet: false))
+            days.append(Day(number: n, date: Date()))
         }
+        return days
+    }
+    
+    static func resetDaysForCurrentDay(days: [Day], number: Int) -> [Day] {
+        for (index, var day) in days.enumerated() {
+            let areRequirementsMet = number > index + 1
+            day.setAllRequirements(areRequirementsMet)
+        }
+        
         return days
     }
 }

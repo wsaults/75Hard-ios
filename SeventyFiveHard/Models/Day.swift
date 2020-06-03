@@ -13,53 +13,70 @@ struct Day {
     var date: Date
     
     var isDietRequirementMet: Bool {
-        didSet {
-            UserDefaults.standard.set(isDietRequirementMet, forKey: "\(number)-isDietRequirementMet")
+        set {
+            setRequirement(newValue, forKey: "isDietRequirementMet")
+        }
+        
+        get {
+            return getRequirement(forKey: "isDietRequirementMet")
         }
     }
     
     var isWaterRequirementMet: Bool {
-        didSet {
-            UserDefaults.standard.set(isWaterRequirementMet, forKey: "\(number)-isWaterRequirementMet")
+        set {
+            setRequirement(newValue, forKey: "isWaterRequirementMet")
+        }
+        
+        get {
+            return getRequirement(forKey: "isWaterRequirementMet")
         }
     }
     
     var isIndoorWorkoutRequirementMet: Bool {
-        didSet {
-            UserDefaults.standard.set(isIndoorWorkoutRequirementMet, forKey: "\(number)-isIndoorWorkoutRequirementMet")
+        set {
+            setRequirement(newValue, forKey: "isIndoorWorkoutRequirementMet")
+        }
+        
+        get {
+            return getRequirement(forKey: "isIndoorWorkoutRequirementMet")
         }
     }
     
     var isOutdoorWorkoutRequirementMet: Bool {
-        didSet {
-            UserDefaults.standard.set(isOutdoorWorkoutRequirementMet, forKey: "\(number)-isOutdoorWorkoutRequirementMet")
+        set {
+            setRequirement(newValue, forKey: "isOutdoorWorkoutRequirementMet")
+        }
+        
+        get {
+            return getRequirement(forKey: "isOutdoorWorkoutRequirementMet")
         }
     }
     
     var isReadingRequirementMet: Bool {
-        didSet {
-            UserDefaults.standard.set(isReadingRequirementMet, forKey: "\(number)-isReadingRequirementMet")
+        set {
+            setRequirement(newValue, forKey: "isReadingRequirementMet")
+        }
+        
+        get {
+            return getRequirement(forKey: "isReadingRequirementMet")
         }
     }
     
     var isPictureRequirementMet: Bool {
-        didSet {
-            UserDefaults.standard.set(isPictureRequirementMet, forKey: "\(number)-isPictureRequirementMet")
+        set {
+            setRequirement(newValue, forKey: "isPictureRequirementMet")
+        }
+        
+        get {
+            return getRequirement(forKey: "isPictureRequirementMet")
         }
     }
     
-    static let `default` = Self(number: 1, date: Date(), areRequirementsMet: false)
+    static let `default` = Self(number: 1, date: Date())
     
-    init(number: Int, date: Date, areRequirementsMet: Bool = false) {
+    init(number: Int, date: Date) {
         self.number = number
         self.date = date
-        
-        self.isDietRequirementMet = UserDefaults.standard.object(forKey: "\(number)-isDietRequirementMet") as? Bool ?? false
-        self.isWaterRequirementMet = UserDefaults.standard.object(forKey: "\(number)-isWaterRequirementMet") as? Bool ?? false
-        self.isIndoorWorkoutRequirementMet = UserDefaults.standard.object(forKey: "\(number)-isIndoorWorkoutRequirementMet") as? Bool ?? false
-        self.isOutdoorWorkoutRequirementMet = UserDefaults.standard.object(forKey: "\(number)-isOutdoorWorkoutRequirementMet") as? Bool ?? false
-        self.isReadingRequirementMet = UserDefaults.standard.object(forKey: "\(number)-isReadingRequirementMet") as? Bool ?? false
-        self.isPictureRequirementMet = UserDefaults.standard.object(forKey: "\(number)-isPictureRequirementMet") as? Bool ?? false
     }
     
     func areRequirementsMet() -> Bool {
@@ -111,5 +128,22 @@ struct Day {
         case .none:
             break
         }
+    }
+    
+    mutating func setAllRequirements(_ value: Bool) {
+        isDietRequirementMet = value
+        isWaterRequirementMet = value
+        isIndoorWorkoutRequirementMet = value
+        isOutdoorWorkoutRequirementMet = value
+        isReadingRequirementMet = value
+        isPictureRequirementMet = value
+    }
+    
+    private func setRequirement(_ newValue: Bool, forKey key: String) {
+         UserDefaults.standard.set(newValue, forKey: "\(number)-\(key)")
+    }
+    
+    private func getRequirement(forKey key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: "\(number)-\(key)") as? Bool ?? false
     }
 }

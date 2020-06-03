@@ -12,6 +12,7 @@ struct Home: View {
     @State var showingProfile = false
     @State var showDayView = false
     @EnvironmentObject var userData: UserData
+    @State var draftProfile = Profile.default
     
     var profileButton: some View {
         Button(action: { self.showingProfile.toggle() }) {
@@ -29,7 +30,13 @@ struct Home: View {
             .environmentObject(self.userData)
             .navigationBarItems(trailing: profileButton)
             .sheet(isPresented: $showingProfile) {
-                ProfileHost().environmentObject(self.userData)
+                ProfileHost(profile: self.$draftProfile)
+                    .onAppear {
+                        self.draftProfile = self.userData.profile
+                    }
+                    .onDisappear {
+                        self.userData.profile = self.draftProfile
+                    }
             }
             .navigationBarTitle(Text("75HARD"), displayMode: .inline)
         }

@@ -65,12 +65,12 @@ struct DayView: View {
 struct DayView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            DayView(currentDay: 1, day: .constant(Day(number: 1, date: Date(), areRequirementsMet: false)))
+            DayView(currentDay: 1, day: .constant(Day(number: 1, date: Date())))
               .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
               .previewDisplayName("iPhone SE")
 
 
-            DayView(currentDay: 1, day: .constant(Day(number: 2, date: Date(), areRequirementsMet: false)))
+            DayView(currentDay: 1, day: .constant(Day(number: 2, date: Date())))
               .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
               .previewDisplayName("iPhone XS Max")
         }

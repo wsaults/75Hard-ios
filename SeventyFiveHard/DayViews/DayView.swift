@@ -25,18 +25,11 @@ struct DayView: View {
                         .foregroundColor(currentDay == day.number ? Color(UIColor.systemIndigo) : .primary)
                         .font(.largeTitle)
                         .bold()
-                    Spacer()
-                    Button(action: { self.showingRules.toggle() }) {
-                        Image(systemName: "exclamationmark.shield")
-                            .imageScale(.large)
-                            .foregroundColor(.primary)
-                            .accessibility(label: Text("Rules"))
-                            .padding()
-                    }
+                        .underline(currentDay == day.number)
                 }
                 HStack() {
-                    Text("You've got this!").font(.callout)
-                        .padding(.top, -10)
+                    Text(motivationData.randomElement()?.text ?? "You've got this!").font(.callout)
+                        .padding(.top, 0)
                     Spacer()
                 }
             }
@@ -49,28 +42,18 @@ struct DayView: View {
             }
         }
         .padding(.top)
-        .sheet(isPresented: $showingRules) {
-            VStack(alignment: .leading) {
-                Text("🛌 You have until you go to sleep to complete the day")
-                Text("🚫 No alcohol or cheat meals")
-                Text("🌦 1 of your workouts MUST be outdoors")
-                Text("🔇 Audio books DO NOT count")
-                Text("💀 Start on day 1 if you fail")
-            }
-            .padding()
-        }
     }
 }
 
 struct DayView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            DayView(currentDay: 1, day: .constant(Day(number: 1, date: Date())))
+            DayView(currentDay: 1, day: .constant(Day(number: 1)))
               .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
               .previewDisplayName("iPhone SE")
 
 
-            DayView(currentDay: 1, day: .constant(Day(number: 2, date: Date())))
+            DayView(currentDay: 1, day: .constant(Day(number: 2)))
               .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
               .previewDisplayName("iPhone XS Max")
         }

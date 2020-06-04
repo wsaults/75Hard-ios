@@ -11,6 +11,10 @@
 		BE7D792E247B0BFA001DA298 /* WeekDayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7D792D247B0BFA001DA298 /* WeekDayButton.swift */; };
 		BE7D79302482EB68001DA298 /* RequirementItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7D792F2482EB68001DA298 /* RequirementItemRow.swift */; };
 		BE7D79322484A802001DA298 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7D79312484A802001DA298 /* Helpers.swift */; };
+		BE7D793524874E79001DA298 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7D793424874E79001DA298 /* InfoView.swift */; };
+		BE7D79372487DDEB001DA298 /* InfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7D79362487DDEB001DA298 /* InfoCard.swift */; };
+		BE7D793B24893AB0001DA298 /* motivationData.json in Resources */ = {isa = PBXBuildFile; fileRef = BE7D793A24893AB0001DA298 /* motivationData.json */; };
+		BE7D793D24893D38001DA298 /* Motivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7D793C24893D38001DA298 /* Motivation.swift */; };
 		BEB01BC8246794660077EE1B /* DayPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB01BC7246794660077EE1B /* DayPageViewController.swift */; };
 		BEB01BCA2467968F0077EE1B /* DayPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB01BC92467968F0077EE1B /* DayPageView.swift */; };
 		BEB01BCC24685D040077EE1B /* DayGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB01BCB24685D040077EE1B /* DayGridView.swift */; };
@@ -91,6 +95,10 @@
 		BE7D792D247B0BFA001DA298 /* WeekDayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayButton.swift; sourceTree = "<group>"; };
 		BE7D792F2482EB68001DA298 /* RequirementItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementItemRow.swift; sourceTree = "<group>"; };
 		BE7D79312484A802001DA298 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		BE7D793424874E79001DA298 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		BE7D79362487DDEB001DA298 /* InfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCard.swift; sourceTree = "<group>"; };
+		BE7D793A24893AB0001DA298 /* motivationData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = motivationData.json; sourceTree = "<group>"; };
+		BE7D793C24893D38001DA298 /* Motivation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Motivation.swift; sourceTree = "<group>"; };
 		BEB01BC7246794660077EE1B /* DayPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPageViewController.swift; sourceTree = "<group>"; };
 		BEB01BC92467968F0077EE1B /* DayPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPageView.swift; sourceTree = "<group>"; };
 		BEB01BCB24685D040077EE1B /* DayGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayGridView.swift; sourceTree = "<group>"; };
@@ -210,6 +218,15 @@
 			path = ExampleViews;
 			sourceTree = "<group>";
 		};
+		BE7D793324874E6B001DA298 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				BE7D793424874E79001DA298 /* InfoView.swift */,
+				BE7D79362487DDEB001DA298 /* InfoCard.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
 		BEB9736B24645FA50035E170 = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +255,7 @@
 				BEB973D224649BB50035E170 /* Home.swift */,
 				BE7D79312484A802001DA298 /* Helpers.swift */,
 				BE3724A8247AE60D003A83DD /* DayViews */,
+				BE7D793324874E6B001DA298 /* Info */,
 				BEB973D62464A9BD0035E170 /* Profile */,
 				BEB973CB246494BC0035E170 /* SupportingViews */,
 				BEB973AE246471960035E170 /* Resources */,
@@ -287,6 +305,7 @@
 				BEB973AC2464716A0035E170 /* Day.swift */,
 				BEB973B1246472DC0035E170 /* Requirement.swift */,
 				BEB973B924648A770035E170 /* UserData.swift */,
+				BE7D793C24893D38001DA298 /* Motivation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -310,6 +329,7 @@
 				BEB973C9246494890035E170 /* hikeData.json */,
 				BEB973B3246473D40035E170 /* dayData.json */,
 				BEB973E72465B4EA0035E170 /* requirementData.json */,
+				BE7D793A24893AB0001DA298 /* motivationData.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -447,6 +467,7 @@
 				BEB973F02465BC5A0035E170 /* stmarylake.jpg in Resources */,
 				BEB974022465BC670035E170 /* silversalmoncreek.jpg in Resources */,
 				BEB973F92465BC610035E170 /* hiddenlake.jpg in Resources */,
+				BE7D793B24893AB0001DA298 /* motivationData.json in Resources */,
 				BEB974012465BC670035E170 /* turtlerock.jpg in Resources */,
 				BEB973E82465B4EA0035E170 /* requirementData.json in Resources */,
 				BEB973B4246473D40035E170 /* dayData.json in Resources */,
@@ -495,6 +516,7 @@
 				BEB9737824645FA60035E170 /* AppDelegate.swift in Sources */,
 				BEB973EA2465B8230035E170 /* Landmark.swift in Sources */,
 				BEB973A824646D320035E170 /* CircleImage.swift in Sources */,
+				BE7D793524874E79001DA298 /* InfoView.swift in Sources */,
 				BEB973CD246494CC0035E170 /* HikeGraph.swift in Sources */,
 				BEB973D52464A31B0035E170 /* CategoryRow.swift in Sources */,
 				BE7D79322484A802001DA298 /* Helpers.swift in Sources */,
@@ -521,6 +543,8 @@
 				BEB973BE24648F120035E170 /* HexagonParameters.swift in Sources */,
 				BEB973DE2464ACBD0035E170 /* HikeBadge.swift in Sources */,
 				BEB973B0246471FB0035E170 /* Row.swift in Sources */,
+				BE7D793D24893D38001DA298 /* Motivation.swift in Sources */,
+				BE7D79372487DDEB001DA298 /* InfoCard.swift in Sources */,
 				BEB973B6246475270035E170 /* Data.swift in Sources */,
 				BEB9737C24645FA60035E170 /* ContentView.swift in Sources */,
 				BEB974042465C9A10035E170 /* Home-old.swift in Sources */,

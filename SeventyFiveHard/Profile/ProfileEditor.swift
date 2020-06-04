@@ -20,15 +20,22 @@ struct ProfileEditor: View {
     
     var body: some View {
         VStack {
-            Button("HARD Reset - Back to Day 1") {
-                self.profile.currentDay = 1
+            Button("HARD Reset (Back to Day 1)") {
+                self.profile.progressDay = 1
             }
-            
+            .frame(maxWidth: .infinity)
+            .font(.headline)
+            .padding()
+            .foregroundColor(.white)
+            .background(Color.red)
+            .cornerRadius(20)
+            .padding()
+                        
             List {
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("Current Day").bold()
+                    Text("Current day in program:").bold()
                     
-                    Picker(selection: $profile.currentDay, label: Text("")) {
+                    Picker(selection: $profile.progressDay, label: Text("")) {
                         ForEach(1 ... profile.maxDays, id: \.self) { i in
                             Text("\(i)")
                         }

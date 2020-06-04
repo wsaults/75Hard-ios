@@ -26,9 +26,9 @@ struct DayPageView<Page: View>: View {
 struct DayPageView_Previews: PreviewProvider {
     static var previews: some View {
         let days = [
-            Day(number: 1, date: Date()),
-            Day(number: 2, date: Date()),
-            Day(number: 3, date: Date())
+            Day(number: 1),
+            Day(number: 2),
+            Day(number: 3)
         ]
         return DayPageView(days: days.map {
             DayView(currentDay: 1, day: .constant($0))

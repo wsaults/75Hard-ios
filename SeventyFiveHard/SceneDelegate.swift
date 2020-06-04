@@ -23,8 +23,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             
+            let userData = UserData()
+            let currentDate = userData.profile.currentDate
+            
+            let difference = Helpers.differenceFromCurrentDate(currentDate)
+            if difference > 0 {
+                userData.profile.currentDate = Helpers.addDaysToDate(value: difference, date: currentDate)
+                userData.profile.currentDay = userData.profile.currentDay + difference
+            }
+            
             window.rootViewController = UIHostingController(
-                rootView: Home().environmentObject(UserData())
+                rootView: Home().environmentObject(userData)
             )
             self.window = window
             window.makeKeyAndVisible()

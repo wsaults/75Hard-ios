@@ -21,9 +21,13 @@ struct ProfileHost: View {
                         self.draftProfile = self.profile
                         self.mode?.animation().wrappedValue = .inactive
                     }
+                    .padding(.leading)
+                    .padding(.top)
                 }
                 Spacer()
                 EditButton()
+                    .padding(.trailing)
+                    .padding(.top)
             }
             if self.mode?.wrappedValue == .inactive {
                 ProfileSummary(profile: self.profile)
@@ -37,7 +41,6 @@ struct ProfileHost: View {
                     }
             }
         }
-        .padding()
     }
 }
 

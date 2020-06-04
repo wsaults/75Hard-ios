@@ -50,11 +50,11 @@ struct WeekDayButton: View {
 struct WeekDayButton_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            WeekDayButton(currentDay: 1, day: Day(number: 1, date: Date())).environmentObject(UserData())
-            WeekDayButton(currentDay: 1, day: Day(number: 1, date: Date())).environmentObject(UserData())
+            WeekDayButton(currentDay: 1, day: Day(number: 1)).environmentObject(UserData())
+            WeekDayButton(currentDay: 1, day: Day(number: 1)).environmentObject(UserData())
             
-            WeekDayButton(currentDay: 2, day: Day(number: 1, date: Date())).environmentObject(UserData())
-            WeekDayButton(currentDay: 2, day: Day(number: 1, date: Date())).environmentObject(UserData())
+            WeekDayButton(currentDay: 2, day: Day(number: 1)).environmentObject(UserData())
+            WeekDayButton(currentDay: 2, day: Day(number: 1)).environmentObject(UserData())
             
         }.previewLayout(.sizeThatFits)
     }

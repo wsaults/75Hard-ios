@@ -10,13 +10,12 @@ import SwiftUI
 
 struct Home: View {
     @State var showingProfile = false
-    @State var showDayView = false
     @EnvironmentObject var userData: UserData
     @State var draftProfile = Profile.default
     
     var profileButton: some View {
         Button(action: { self.showingProfile.toggle() }) {
-            Image(systemName: "gear")
+            Image(systemName: "info.circle")
                 .imageScale(.large)
                 .accessibility(label: Text("Settings"))
                 .foregroundColor(.primary)

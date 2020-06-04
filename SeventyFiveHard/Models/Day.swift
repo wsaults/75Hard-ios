@@ -10,7 +10,6 @@ import Foundation
 
 struct Day {
     var number: Int
-    var date: Date
     
     var isDietRequirementMet: Bool {
         set {
@@ -72,11 +71,10 @@ struct Day {
         }
     }
     
-    static let `default` = Self(number: 1, date: Date())
+    static let `default` = Self(number: 1)
     
-    init(number: Int, date: Date) {
+    init(number: Int) {
         self.number = number
-        self.date = date
     }
     
     func areRequirementsMet() -> Bool {

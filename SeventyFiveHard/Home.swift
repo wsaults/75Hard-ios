@@ -65,34 +65,3 @@ struct Home_Previews: PreviewProvider {
         Home().environmentObject(UserData())
     }
 }
-
-
-
-// ============== Add later for page view ==============
-//
-//    leading: gridViewButton,
-//    var gridViewButton: some View {
-//        Button(action: {
-//            self.showDayView.toggle()
-//        }) {
-//            Image(systemName: "circle.grid.3x3")
-//                .imageScale(.large)
-//                .accessibility(label: Text("Grid View"))
-//                .foregroundColor(.black)
-//                .padding()
-//        }
-//    }
-
-//if showDayView {
-//    DayPageView(
-//        days: days.map {
-//            DayView(currentDay: userData.profile.currentDay, day: $0)
-//        }
-//    ).transition(transition)
-//}
-
-//var transition: AnyTransition {
-//    let insertion = AnyTransition.scale.combined(with: .opacity)
-//    let removal = AnyTransition.scale.combined(with: .opacity)
-//    return .asymmetric(insertion: insertion, removal: removal)
-//}

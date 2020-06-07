@@ -21,27 +21,40 @@ struct WeekDayButton: View {
         Button(action: {
             self.showingDetail.toggle()
         }) {
-            Circle()
-                .stroke(currentDay == day.number ? Color(UIColor.systemIndigo) : .clear, lineWidth: 2)
-            .frame(width: 35, height: 35)
-            .overlay(
+            ZStack {
+                if !day.areRequirementsMet() {
+                    DayProgress(count: self.day.countRequirementsMet())
+                }
+                
                 Circle()
-                    .fill(day.areRequirementsMet() ? Color(UIColor.systemIndigo) : Color(UIColor.secondarySystemFill))
+                .stroke(currentDay == day.number ? Color.primary : .clear, lineWidth: 2)
                 .overlay(
-                    Text("\(day.number)")
-                    .fontWeight(.light)
-                        .foregroundColor(day.areRequirementsMet() ? Color(UIColor.white) : Color(UIColor.label))
+                    Circle()
+                        .fill(day.areRequirementsMet() ? Color(UIColor.red75) : Color(UIColor.secondarySystemFill))
+                    .overlay(
+                        Text("\(day.number)")
+                        .fontWeight(.light)
+                            .foregroundColor(day.areRequirementsMet() ? Color(UIColor.white) : Color(UIColor.label))
+                    ).frame(width: 36, height: 36)
                 )
-            )
+                .frame(width: 38, height: 38)
+            }
         }
         .accessibility(label: Text("Day \(day.number)"))
         .sheet(isPresented: $showingDetail) {
-            DayView(currentDay: self.currentDay, day: self.$draftProfile.days[self.day.number-1])
+            DayView(currentDay: self.currentDay,
+                    day: self.$draftProfile.days[self.day.number-1],
+                    motivationText: motivationData.randomElement()?.text ?? "You've got this!")
             .onAppear {
                 self.draftProfile = self.userData.profile
             }
             .onDisappear {
                 self.userData.profile = self.draftProfile
+                
+                let count = self.day.countRequirementsMet()
+                if count == 6 {
+                    StoreHelpers.askForReviewIfNeeded()
+                }
             }
         }
     }
@@ -55,7 +68,9 @@ struct WeekDayButton_Previews: PreviewProvider {
             
             WeekDayButton(currentDay: 2, day: Day(number: 1)).environmentObject(UserData())
             WeekDayButton(currentDay: 2, day: Day(number: 1)).environmentObject(UserData())
-            
-        }.previewLayout(.sizeThatFits)
+            WeekDayButton(currentDay: 1, day: Day(number: 1)).environmentObject(UserData())
+            WeekDayButton(currentDay: 2, day: Day(number: 1)).environmentObject(UserData())
+        }
+        .previewLayout(.sizeThatFits)
     }
 }

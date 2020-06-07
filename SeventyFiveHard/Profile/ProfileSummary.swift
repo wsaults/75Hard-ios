@@ -11,7 +11,7 @@ import SwiftUI
 struct ProfileSummary: View {
     fileprivate let podcastUrlString = "https://andyfrisella.com/blogs/mfceo-project-podcast/75hard-a-75-day-tactical-guide-to-winning-the-war-with-yourself-with-andy-frisella-mfceo291"
     
-    var profile: Profile
+    var currentDay: Int
     
 //    static let goalFormat: DateFormatter = {
 //        let formatter = DateFormatter()
@@ -26,7 +26,7 @@ struct ProfileSummary: View {
                 HStack {
                     Text("Current Day:")
                     Spacer()
-                    Text("\(self.profile.currentDay)")
+                    Text("\(currentDay)")
                 }
             }
             
@@ -39,7 +39,7 @@ struct ProfileSummary: View {
                         UIApplication.shared.open(url as URL)
                     }) {
                         Text(verbatim: "andyfrisella.com/75hard-info")
-                            .foregroundColor(Color(UIColor.systemIndigo))
+                            .foregroundColor(Color(UIColor.systemBlue))
                     }
                 }
                 
@@ -51,7 +51,7 @@ struct ProfileSummary: View {
                         UIApplication.shared.open(url as URL)
                     }) {
                         Text(verbatim: "andyfrisella.com/75hard-podcast")
-                            .foregroundColor(Color(UIColor.systemIndigo))
+                            .foregroundColor(Color(UIColor.systemBlue))
                     }
                 }
                 
@@ -63,7 +63,7 @@ struct ProfileSummary: View {
                         UIApplication.shared.open(url as URL)
                     }) {
                         Text(verbatim: "instagram.com/andyfrisella")
-                            .foregroundColor(Color(UIColor.systemIndigo))
+                            .foregroundColor(Color(UIColor.systemBlue))
                     }
                     
                 }
@@ -81,12 +81,16 @@ struct ProfileSummary: View {
                         color: Color(UIColor.systemRed))
                 
                 InfoCard(headline: "About 75 Hard",
-                         content: "💪 The 75 Hard program was created by Andy Frisella. In his words: \n\"75 HARD IS A TRANSFORMATIVE MENTAL TOUGHNESS PROGRAM\"",
+                         content: "💪 The 75 Hard program was created by Andy Frisella. In his words: \n\"75 HARD IS A TRANSFORMATIVE MENTAL TOUGHNESS PROGRAM\" Visit the links above to learn more.",
                          color: Color(UIColor.systemBlue))
                 
                 InfoCard(headline: "About the Developer",
                          content: "👋 Hi, I'm Will Saults. I hope that by building this app I'm able to give back to the 75 Hard community. Huge thanks to Andy Frisella for providing the program absolutly free!",
                          color: Color(UIColor.systemTeal))
+                
+                InfoCard(headline: "DISCLAIMER",
+                         content: "You should consult your physician or other health care professional before starting 75 Hard or any other fitness program to determine if it is right for your needs. Do not start 75 Hard if your physician or health care provider advises against it.",
+                         color: Color(UIColor.systemGray))
             }
             .padding(.all, -10)
             .listRowBackground(Color(UIColor.systemGray6))
@@ -97,6 +101,6 @@ struct ProfileSummary: View {
 
 struct ProfileSummary_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileSummary(profile: Profile.default)
+        ProfileSummary(currentDay: 1)
     }
 }

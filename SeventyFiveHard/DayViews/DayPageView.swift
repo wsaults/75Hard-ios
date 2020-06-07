@@ -31,7 +31,7 @@ struct DayPageView_Previews: PreviewProvider {
             Day(number: 3)
         ]
         return DayPageView(days: days.map {
-            DayView(currentDay: 1, day: .constant($0))
+            DayView(currentDay: 1, day: .constant($0), motivationText: "You can do it!")
         })
     }
 }

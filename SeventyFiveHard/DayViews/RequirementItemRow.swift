@@ -16,7 +16,7 @@ struct RequirementItemRow: View {
         VStack(spacing: 0) {
             ZStack(alignment: .leading) {
                 Rectangle()
-                    .fill(Color(UIColor.systemIndigo))
+                    .fill(Color(UIColor.red75))
                 
                 HStack {
                     VStack(alignment: .leading, spacing: 0) {
@@ -48,6 +48,7 @@ struct RequirementItemRow: View {
             let id = self.requirement.id
             let toggleValue = !self.day.requirementById(id: id)
             self.day.setRequirementById(id: id, value: toggleValue)
+//            self.day.requirementMetCount = self.day.countRequirementsMet()
         }
     }
 }

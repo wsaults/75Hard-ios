@@ -13,6 +13,8 @@ struct DayView: View {
     
     var currentDay: Int
     @Binding var day: Day
+    var motivationText: String
+    
     fileprivate var items: [Requirement]  {
         requirementData
     }
@@ -22,13 +24,13 @@ struct DayView: View {
             VStack(alignment: .leading) {
                 HStack {
                     Text("Day \(day.number)")
-                        .foregroundColor(currentDay == day.number ? Color(UIColor.systemIndigo) : .primary)
+                        .foregroundColor(currentDay == day.number ? Color(UIColor.red75) : .primary)
                         .font(.largeTitle)
                         .bold()
                         .underline(currentDay == day.number)
                 }
                 HStack() {
-                    Text(motivationData.randomElement()?.text ?? "You've got this!").font(.callout)
+                    Text(motivationText).font(.callout)
                         .padding(.top, 0)
                     Spacer()
                 }
@@ -48,12 +50,12 @@ struct DayView: View {
 struct DayView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            DayView(currentDay: 1, day: .constant(Day(number: 1)))
+            DayView(currentDay: 1, day: .constant(Day(number: 1)), motivationText: "You can do it! You know you can!")
               .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
               .previewDisplayName("iPhone SE")
 
 
-            DayView(currentDay: 1, day: .constant(Day(number: 2)))
+            DayView(currentDay: 1, day: .constant(Day(number: 2)), motivationText: "You can do it!")
               .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
               .previewDisplayName("iPhone XS Max")
         }

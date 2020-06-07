@@ -17,7 +17,8 @@ struct WeekView: View {
     var body: some View {
         HStack() {
             ForEach(days, id: \.number) { day in
-                WeekDayButton(currentDay: self.current, day: day).environmentObject(self.userData)
+                WeekDayButton(currentDay: self.current, day: day
+                ).environmentObject(self.userData)
             }
             .padding(.top, 4)
             .padding(.trailing, 4)
@@ -32,7 +33,7 @@ struct WeekView_Previews: PreviewProvider {
         let days = [
             Day(number: 70),
             Day(number: 71),
-            Day(number: 72),
+            Day(number: 72)
         ]
         
         return WeekView(current: 71, days: days)

@@ -10,7 +10,8 @@ import SwiftUI
 
 
 struct ProfileEditor: View {
-    @Binding var profile: Profile
+    @Binding var profile: TempProfile
+    @State private var showingAlert = false
     
 //    var dateRange: ClosedRange<Date> {
 //        let min = Calendar.current.date(byAdding: .year, value: -1, to: profile.goalDate)!
@@ -21,7 +22,7 @@ struct ProfileEditor: View {
     var body: some View {
         VStack {
             Button("HARD Reset (Back to Day 1)") {
-                self.profile.progressDay = 1
+                self.showingAlert = true
             }
             .frame(maxWidth: .infinity)
             .font(.headline)
@@ -30,16 +31,25 @@ struct ProfileEditor: View {
             .background(Color.red)
             .cornerRadius(20)
             .padding()
+            .alert(isPresented: $showingAlert) {
+                Alert(title: Text("Reset to Day 1"),
+                      message: Text("Are you sure?"),
+                      primaryButton: .default(Text("Cancel")),
+                      secondaryButton: .destructive(Text("Reset"), action: {
+                        self.profile.progressDay = 1
+                      })
+                )
+            }
                         
             List {
                 VStack(alignment: .leading, spacing: 20) {
                     Text("Current day in program:").bold()
                     
-                    Picker(selection: $profile.progressDay, label: Text("")) {
+                    Picker("", selection: $profile.progressDay) {
                         ForEach(1 ... profile.maxDays, id: \.self) { i in
                             Text("\(i)")
                         }
-                    }.padding(.top, -60)
+                    }.padding(.top, -30)
                 }.padding(.top)
             }
         }

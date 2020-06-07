@@ -11,7 +11,6 @@ import SwiftUI
 struct Home: View {
     @State var showingProfile = false
     @EnvironmentObject var userData: UserData
-    @State var draftProfile = Profile.default
     
     var profileButton: some View {
         Button(action: { self.showingProfile.toggle() }) {
@@ -25,21 +24,40 @@ struct Home: View {
     
     var body: some View {
         NavigationView {
-            DayGridView()
-            .environmentObject(self.userData)
-            .navigationBarItems(trailing: profileButton)
-            .sheet(isPresented: $showingProfile) {
-                ProfileHost(profile: self.$draftProfile)
-                    .onAppear {
-                        self.draftProfile = self.userData.profile
+            VStack {
+                DayGridView()
+                .environmentObject(self.userData)
+                .navigationBarItems(trailing: profileButton)
+                .sheet(isPresented: $showingProfile) {
+                    ProfileHost()
+                        .environmentObject(self.userData)
+                }
+                .navigationBarTitle(Text("75HARD"), displayMode: .inline)
+                
+                VStack {
+                    HStack {
+                        Text("Now:")
+                        Text("\(Home.dayFormat.string(from: Date()))")
                     }
-                    .onDisappear {
-                        self.userData.profile = self.draftProfile
+                    HStack {
+                        Text("Current date:")
+                        Text("\(Home.dayFormat.string(from: self.userData.profile.currentDate))")
                     }
+                    HStack {
+                        Text("Difference Day:")
+                        Text("\(Helpers.differenceFromCurrentDate(self.userData.profile.currentDate))")
+                    }
+                }
             }
-            .navigationBarTitle(Text("75HARD"), displayMode: .inline)
         }
     }
+    
+    static let dayFormat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .short
+        return formatter
+    }()
 }
 
 struct Home_Previews: PreviewProvider {

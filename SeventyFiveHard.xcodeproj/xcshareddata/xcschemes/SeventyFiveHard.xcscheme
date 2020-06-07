@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BEB9737324645FA50035E170"
-               BuildableName = "SeventyFiveHard.app"
+               BuildableName = "HARD.app"
                BlueprintName = "SeventyFiveHard"
                ReferencedContainer = "container:SeventyFiveHard.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BEB9737324645FA50035E170"
-            BuildableName = "SeventyFiveHard.app"
+            BuildableName = "HARD.app"
             BlueprintName = "SeventyFiveHard"
             ReferencedContainer = "container:SeventyFiveHard.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BEB9737324645FA50035E170"
-            BuildableName = "SeventyFiveHard.app"
+            BuildableName = "HARD.app"
             BlueprintName = "SeventyFiveHard"
             ReferencedContainer = "container:SeventyFiveHard.xcodeproj">
          </BuildableReference>

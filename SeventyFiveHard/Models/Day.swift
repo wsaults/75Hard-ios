@@ -9,7 +9,17 @@
 import Foundation
 
 struct Day {
+    enum DayRequirement: Int {
+        case diet = 1, water, indoor, outdoor, reading, picture
+    }
+    
     var number: Int
+    
+    static let `default` = Self(number: 1)
+    
+    init(number: Int) {
+        self.number = number
+    }
     
     var isDietRequirementMet: Bool {
         set {
@@ -71,12 +81,6 @@ struct Day {
         }
     }
     
-    static let `default` = Self(number: 1)
-    
-    init(number: Int) {
-        self.number = number
-    }
-    
     func areRequirementsMet() -> Bool {
         return isDietRequirementMet &&
             isWaterRequirementMet &&
@@ -84,10 +88,6 @@ struct Day {
             isOutdoorWorkoutRequirementMet &&
             isReadingRequirementMet &&
             isPictureRequirementMet
-    }
-    
-    enum DayRequirement: Int {
-        case diet = 1, water, indoor, outdoor, reading, picture
     }
     
     func requirementById(id: Int) -> Bool {
@@ -144,4 +144,27 @@ struct Day {
     private func getRequirement(forKey key: String) -> Bool {
         return UserDefaults.standard.object(forKey: "\(number)-\(key)") as? Bool ?? false
     }
+    
+    func countRequirementsMet() -> Int {
+        var count = 0
+        if isDietRequirementMet {
+            count = count + 1
+        }
+        if isWaterRequirementMet {
+            count = count + 1
+        }
+        if isIndoorWorkoutRequirementMet {
+            count = count + 1
+        }
+        if isOutdoorWorkoutRequirementMet {
+            count = count + 1
+        }
+        if isReadingRequirementMet {
+            count = count + 1
+        }
+        if isPictureRequirementMet {
+            count = count + 1
+        }
+        return count
+    }     
 }

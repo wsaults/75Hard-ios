@@ -10,15 +10,17 @@ import SwiftUI
 
 struct ProfileHost: View {
     @Environment(\.editMode) var mode
-    @Binding var profile: Profile
+    @EnvironmentObject var userData: UserData
     @State var draftProfile = Profile.default
+    @State var tempProfile = TempProfile.default
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             HStack {
                 if self.mode?.wrappedValue == .active {
                     Button("Cancel") {
-                        self.draftProfile = self.profile
+                        self.tempProfile = TempProfile.default
+                        self.draftProfile = self.userData.profile
                         self.mode?.animation().wrappedValue = .inactive
                     }
                     .padding(.leading)
@@ -30,14 +32,24 @@ struct ProfileHost: View {
                     .padding(.top)
             }
             if self.mode?.wrappedValue == .inactive {
-                ProfileSummary(profile: self.profile)
+                ProfileSummary(currentDay: userData.profile.currentDay)
             } else {
-                ProfileEditor(profile: $draftProfile)
+                ProfileEditor(profile: $tempProfile)
                     .onAppear {
-                        self.draftProfile = self.profile
+                        if self.tempProfile.needsUpdate() {
+                            self.userData.profile.currentDay = self.tempProfile.progressDay
+                            self.userData.profile.progressDay = self.tempProfile.progressDay
+                        }
+                        
+                        self.draftProfile = self.userData.profile
                     }
                     .onDisappear {
-                        self.profile = self.draftProfile
+                        if self.tempProfile.needsUpdate() {
+                            self.draftProfile.currentDay = self.tempProfile.progressDay
+                            self.draftProfile.progressDay = self.tempProfile.progressDay
+                        }
+                        
+                        self.userData.profile = self.draftProfile
                     }
             }
         }
@@ -46,6 +58,6 @@ struct ProfileHost: View {
 
 struct ProfileHost_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileHost(profile: .constant(.default))
+        ProfileHost().environmentObject(UserData())
     }
 }

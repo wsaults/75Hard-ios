@@ -24,31 +24,14 @@ struct Home: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                DayGridView()
-                .environmentObject(self.userData)
-                .navigationBarItems(trailing: profileButton)
-                .sheet(isPresented: $showingProfile) {
-                    ProfileHost()
-                        .environmentObject(self.userData)
-                }
-                .navigationBarTitle(Text("75HARD"), displayMode: .inline)
-                
-                VStack {
-                    HStack {
-                        Text("Now:")
-                        Text("\(Home.dayFormat.string(from: Date()))")
-                    }
-                    HStack {
-                        Text("Current date:")
-                        Text("\(Home.dayFormat.string(from: self.userData.profile.currentDate))")
-                    }
-                    HStack {
-                        Text("Difference Day:")
-                        Text("\(Helpers.differenceFromCurrentDate(self.userData.profile.currentDate))")
-                    }
-                }
+            DayGridView()
+            .environmentObject(self.userData)
+            .navigationBarItems(trailing: profileButton)
+            .sheet(isPresented: $showingProfile) {
+                ProfileHost()
+                    .environmentObject(self.userData)
             }
+            .navigationBarTitle(Text("75HARD"), displayMode: .inline)
         }
     }
     

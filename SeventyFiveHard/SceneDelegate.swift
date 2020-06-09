@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let currentDate = userData.profile.currentDate
             
             let difference = Helpers.differenceFromCurrentDate(currentDate)
-            if difference > 0 {
+            if difference > 0 && userData.profile.currentDay < userData.profile.maxDays {
                 userData.profile.currentDate = Helpers.addDaysToDate(value: difference, date: currentDate)
                 userData.profile.currentDay = userData.profile.currentDay + difference
             }
